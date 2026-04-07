@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - UENR Medical Clinic</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <i class="fas fa-heartbeat"></i> UENR Medical Clinic
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="doctors.html">Doctors</a></li>
+                <li><a href="appointment.html">Book Appointment</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" style="padding: 120px 0 80px;">
+        <div class="container">
+            <h1>Get In Touch</h1>
+            <p>We're here to help. Contact us for appointments, inquiries, or emergencies</p>
+        </div>
+    </section>
+
+    <!-- Contact Content -->
+    <section style="padding: 100px 0; background: var(--cream-bg);">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;">
+                
+                <!-- Contact Info -->
+                <div>
+                    <h2 class="section-title" style="text-align: left;">Contact Information</h2>
+                    
+                    <div class="contact-item fade-in">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Location</h4>
+                            <p>UENR Campus, Sunyani<br>Brong Ahafo Region</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item fade-in">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4>Phone</h4>
+                            <p><a href="tel:+233241234567" style="color: var(--dark-brown);">🇬🇭 +233 24 123 4567</a></p>
+                            <p>Emergency: Available 24/7</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item fade-in">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>Email</h4>
+                            <p><a href="mailto:uenrclinic@gmail.com" style="color: var(--dark-brown);">uenrclinic@gmail.com</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item fade-in">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h4>Working Hours</h4>
+                            <p>Mon – Fri: 8:00am – 5:00pm<br>Saturday: 9:00am – 2:00pm</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div>
+                    <h3 style="color: var(--dark-brown); margin-bottom: 2rem; font-size: 1.8rem;">Send us a Message</h3>
+                    <form id="contactForm" class="booking-form">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                            <div class="form-group">
+                                <label for="contactName"><i class="fas fa-user"></i> Full Name</label>
+                                <input type="text" id="contactName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactEmail"><i class="fas fa-envelope"></i> Email</label>
+                                <input type="email" id="contactEmail" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactPhone"><i class="fas fa-phone"></i> Phone</label>
+                            <div style="position: relative;">
+                                <span style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--dark-brown);">🇬🇭 +233</span>
+                                <input type="tel" id="contactPhone" placeholder="24 123 4567" style="padding-left: 80px;">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactSubject"><i class="fas fa-edit"></i> Subject</label>
+                            <input type="text" id="contactSubject" placeholder="e.g. Appointment inquiry">
+                        </div>
+                        <div class="form-group">
+                            <label for="contactMessage"><i class="fas fa-comment"></i> Message</label>
+                            <textarea id="contactMessage" rows="5" placeholder="Tell us how we can help you..." required></textarea>
+                        </div>
+                        <button type="submit" onclick="sendMail()" class="btn btn-primary" style="width: 100%; padding: 18px;">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+           
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>UENR Medical Clinic</h3>
+                    <p>UENR Campus, Sunyani | +233 24 123 4567</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 UENR Medical Clinic. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Google Maps (Sunyani, Ghana)
+        function initMap() {
+            const clinicLocation = { lat: 7.3432, lng: -2.3278 }; // Sunyani coordinates
+            const map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 15,
+                center: clinicLocation,
+                styles: [
+                    { featureType: 'poi', elementType: 'labels', stylers: [{ visibility: 'off' }] }
+                ]
+            });
+            
+            new google.maps.Marker({
+                position: clinicLocation,
+                map: map,
+                title: 'UENR Medical Clinic',
+                icon: {
+                    url: 'https://maps.google.com/mapfiles/ms/icons/green-dot.png'
+                }
+            });
+        }
+
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('✅ Thank you for your message! We will respond within 24 hours.');
+            this.reset();
+        });
+
+        // Load Google Maps (replace YOUR_API_KEY if you have one, or remove script tag)
+        const script = document.createElement('script');
+        script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyD-9tSrke72PQm9Gu91JHAiSUkRhUeVVGA&callback=initMap';
+        script.async = true;
+        document.head.appendChild(script);
+    </script>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

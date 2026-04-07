@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Doctors - UENR Medical Clinic</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <i class="fas fa-heartbeat"></i> UENR Medical Clinic
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="doctors.html">Doctors</a></li>
+                <li><a href="appointment.html">Book Appointment</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero fade-in" style="padding: 150px 0 100px; background: linear-gradient(rgba(139,69,19,0.9), rgba(160,82,45,0.9)), url('https://images.unsplash.com/photo-1576091160399-1d65cdaa8782?w=1920') center/cover;">
+        <div class="container">
+            <h1>Our Expert Medical Team</h1>
+            <p>Meet our dedicated doctors committed to your health and well-being</p>
+        </div>
+    </section>
+
+    <!-- Doctors Grid -->
+    <section style="padding: 120px 0; background: var(--cream-bg);">
+        <div class="container">
+            <h2 class="section-title fade-in">Our Distinguished Doctors</h2>
+            <p class="section-subtitle fade-in">Highly qualified professionals with years of experience</p>
+            
+            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 3rem; margin-top: 4rem;">
+                
+                <!-- Dr. Opuni Randolph -->
+                <div class="doctor-card fade-in">
+                    <div class="doctor-image">
+                        <img src="wise.png" alt="Dr. Opuni Randolph">
+                        <div class="doctor-status online"></div>
+                    </div>
+                    <h3>Dr. Opuni Randolph</h3>
+                    <div class="doctor-specialty">General Physician</div>
+                    <p>Expert in comprehensive healthcare, preventive medicine, and chronic disease management with over 12 years of experience.</p>
+                    <div class="doctor-availability">
+                        <span><i class="fas fa-calendar-day"></i> Mon–Fri</span>
+                        <span><i class="fas fa-clock"></i> 8AM - 5PM</span>
+                    </div>
+                    <a href="appointment.html?doctor=dr-opuni&service=general-checkup" class="btn btn-primary book-doctor-btn" data-doctor="dr-opuni">
+                        <i class="fas fa-calendar-check"></i> Book with Dr. Opuni
+                    </a>
+                </div>
+
+                <!-- Dr. Mienzah Paulita -->
+                <div class="doctor-card fade-in">
+                    <div class="doctor-image">
+                        <img src="mienzah.png" alt="Dr. Mienzah Paulita">
+                        <div class="doctor-status online"></div>
+                    </div>
+                    <h3>Dr. Mienzah Paulita</h3>
+                    <div class="doctor-specialty">Pediatrician & Family Medicine</div>
+                    <p>Specialist in child healthcare, vaccinations, and family wellness programs. Loved by patients for her compassionate care.</p>
+                    <div class="doctor-availability">
+                        <span><i class="fas fa-calendar-day"></i> Mon–Sat</span>
+                        <span><i class="fas fa-clock"></i> 9AM - 4PM</span>
+                    </div>
+                    <a href="appointment.html?doctor=dr-mienzah&service=vaccination" class="btn btn-primary book-doctor-btn" data-doctor="dr-mienzah">
+                        <i class="fas fa-calendar-check"></i> Book with Dr. Mienzah
+                    </a>
+                </div>
+
+                <!-- Dr. Owusu Francis -->
+                <div class="doctor-card fade-in">
+                    <div class="doctor-image">
+                        <img src="francis.png" alt="Dr. Owusu Francis">
+                        <div class="doctor-status busy"></div>
+                    </div>
+                    <h3>Dr. Owusu Francis</h3>
+                    <div class="doctor-specialty">Laboratory & Diagnostics</div>
+                    <p>Head of laboratory services with expertise in advanced diagnostic testing and pathology. Ensures accurate results.</p>
+                    <div class="doctor-availability">
+                        <span><i class="fas fa-calendar-day"></i> Mon–Fri</span>
+                        <span><i class="fas fa-clock"></i> 8AM - 3PM</span>
+                    </div>
+                    <a href="appointment.html?doctor=dr-owusu-francis&service=laboratory-services" class="btn btn-primary book-doctor-btn" data-doctor="dr-owusu-francis">
+                        <i class="fas fa-calendar-check"></i> Book with Dr. Owusu Francis
+                    </a>
+                </div>
+
+                <!-- Dr. Awogbo Bernard -->
+                <div class="doctor-card fade-in">
+                    <div class="doctor-image">
+                        <img src="awogbo.png" alt="Dr. Awogbo Bernard">
+                        <div class="doctor-status online"></div>
+                    </div>
+                    <h3>Dr. Awogbo Bernard</h3>
+                    <div class="doctor-specialty">Dentistry & Oral Health</div>
+                    <p>Specialist in dental care, orthodontics, and oral surgery. Modern equipment for pain-free treatments.</p>
+                    <div class="doctor-availability">
+                        <span><i class="fas fa-calendar-day"></i> Tue–Sat</span>
+                        <span><i class="fas fa-clock"></i> 9AM - 5PM</span>
+                    </div>
+                    <a href="appointment.html?doctor=dr-awogbo&service=dental-care" class="btn btn-primary book-doctor-btn" data-doctor="dr-awogbo">
+                        <i class="fas fa-calendar-check"></i> Book with Dr. Awogbo
+                    </a>
+                </div>
+
+                <!-- Dr. Owusu Louis -->
+                <div class="doctor-card fade-in">
+                    <div class="doctor-image">
+                        <img src="owusulouis.png" alt="Dr. Owusu Louis">
+                        <div class="doctor-status"></div>
+                    </div>
+                    <h3>Dr. Owusu Louis</h3>
+                    <div class="doctor-specialty">Internal Medicine</div>
+                    <p>Chronic disease specialist focusing on diabetes, hypertension, and cardiovascular health management.</p>
+                    <div class="doctor-availability">
+                        <span><i class="fas fa-calendar-day"></i> Mon–Thu</span>
+                        <span><i class="fas fa-clock"></i> 8AM - 4PM</span>
+                    </div>
+                    <a href="appointment.html?doctor=dr-owusu-louis&service=internal-medicine" class="btn btn-primary book-doctor-btn" data-doctor="dr-owusu-louis">
+                        <i class="fas fa-calendar-check"></i> Book with Dr. Owusu Louis
+                    </a>
+                </div>
+
+                <!-- Dr. Agyei Mintah-Afari -->
+                <div class="doctor-card fade-in">
+                    <div class="doctor-image">
+                        <img src="agyei.jpg" alt="Dr. Agyei Mintah-Afari">
+                        <div class="doctor-status online"></div>
+                    </div>
+                    <h3>Dr. Agyei Mintah-Afari</h3>
+                    <div class="doctor-specialty">Obstetrics & Gynecology</div>
+                    <p>Women's health expert specializing in prenatal care, gynecology, and family planning services.</p>
+                    <div class="doctor-availability">
+                        <span><i class="fas fa-calendar-day"></i> Mon–Fri</span>
+                        <span><i class="fas fa-clock"></i> 9AM - 5PM</span>
+                    </div>
+                    <a href="appointment.html?doctor=dr-agyei&service=obstetrics-gynecology" class="btn btn-primary book-doctor-btn" data-doctor="dr-agyei">
+                        <i class="fas fa-calendar-check"></i> Book with Dr. Agyei
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section style="background: linear-gradient(135deg, var(--soft-green) 0%, #22c55e 100%); color: white; text-align: center; padding: 100px 0;">
+        <div class="container">
+            <h2 class="fade-in" style="font-size: 2.8rem; margin-bottom: 1.5rem;">Ready to Book Your Appointment?</h2>
+            <p class="fade-in" style="font-size: 1.4rem; margin-bottom: 2.5rem; opacity: 0.95;">Our expert team is ready to serve you</p>
+            <a href="appointment.html" class="btn btn-secondary fade-in" style="font-size: 1.3rem; padding: 20px 50px;">
+                <i class="fas fa-calendar-plus"></i> Book Now
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-heartbeat"></i> UENR Medical Clinic</h3>
+                    <p>Excellence in healthcare with our distinguished team of doctors serving the UENR community.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul style="list-style: none;">
+                        <li><a href="index.html" style="color: #F5DEB3;">Home</a></li>
+                        <li><a href="services.html" style="color: #F5DEB3;">Services</a></li>
+                        <li><a href="appointment.html" style="color: #F5DEB3;">Book Appointment</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-phone" style="margin-right: 0.5rem; color: var(--soft-green);"></i>+233 24 123 4567</p>
+                    <p><i class="fas fa-map-marker-alt" style="margin-right: 0.5rem; color: var(--soft-green);"></i>UENR Campus, Sunyani</p>
+                    <p><i class="fab fa-whatsapp" style="margin-right: 0.5rem; color: var(--soft-green);"></i>WhatsApp Ready</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 UENR Medical Clinic. Serving with excellence. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

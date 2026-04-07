@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Appointment - UENR Medical Clinic</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <i class="fas fa-heartbeat"></i> UENR Medical Clinic
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="doctors.html">Doctors</a></li>
+                <li><a href="appointment.html">Book Appointment</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" style="padding: 120px 0 80px; background: linear-gradient(rgba(139,69,19,0.9), rgba(160,82,45,0.9)), url('https://images.unsplash.com/photo-1576091160399-1d65cdaa8782?w=1920') center/cover;">
+        <div class="container">
+            <h1>Book Your Appointment</h1>
+            <p>Schedule your visit with our expert medical team in just 2 minutes</p>
+        </div>
+    </section>
+
+    <!-- Booking Form Section -->
+    <section style="padding: 100px 0; background: var(--cream-bg);">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+                
+                <!-- Form Column -->
+                <div>
+                    <h2 class="section-title" style="text-align: left; margin-bottom: 2rem;">Appointment Booking Form</h2>
+                    
+                    <form id="appointmentForm" class="booking-form">
+                        <!-- Full Name -->
+                        <div class="form-group">
+                            <label for="fullName"><i class="fas fa-user"></i> Full Name <span style="color: var(--soft-green);">*</span></label>
+                            <input type="text" id="fullName" name="fullName" required>
+                            <span class="error-message" id="nameError"></span>
+                        </div>
+
+                        <!-- Contact (Email/Phone) -->
+                        <div class="form-group">
+                            <label for="contact"><i class="fas fa-phone"></i> Phone Number <span style="color: var(--soft-green);">*</span></label>
+                            <div style="position: relative;">
+                                <span style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--dark-brown); font-weight: bold;">
+                                    🇬🇭 +233
+                                </span>
+                                <input type="tel" id="contact" name="contact" placeholder="24 123 4567" 
+                                       pattern="[0-9]{9,10}" required style="padding-left: 80px;">
+                            </div>
+                            <span class="error-message" id="contactError"></span>
+                        </div>
+
+                        <!-- Email (Optional) -->
+                        <div class="form-group">
+                            <label for="email"><i class="fas fa-envelope"></i> Email (Optional)</label>
+                            <input type="email" id="email" name="email">
+                        </div>
+
+                        <!-- Service Dropdown -->
+                        <div class="form-group">
+                            <label for="service"><i class="fas fa-stethoscope"></i> Service <span style="color: var(--soft-green);">*</span></label>
+                            <select id="service" name="service" required>
+                                <option value="">Select a service</option>
+                                <option value="general-checkup">General Health Checkup</option>
+                                <option value="laboratory-services">Laboratory Services</option>
+                                <option value="vaccination">Vaccination</option>
+                                <option value="chronic-care">Chronic Disease Management</option>
+                                <option value="dental-care">Dental Care</option>
+                                <option value="obstetrics-gynecology">Obstetrics & Gynecology</option>
+                                <option value="injury-treatment">Minor Injury Treatment</option>
+                            </select>
+                            <small style="color: var(--soft-green); font-style: italic; margin-top: 0.5rem; display: block;">
+                                Doctor will be automatically assigned based on service
+                            </small>
+                        </div>
+
+                        <!-- Date & Time -->
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                            <div class="form-group">
+                                <label for="appointmentDate"><i class="fas fa-calendar"></i> Date <span style="color: var(--soft-green);">*</span></label>
+                                <input type="date" id="appointmentDate" name="appointmentDate" required>
+                                <span class="error-message" id="dateError"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="appointmentTime"><i class="fas fa-clock"></i> Time (Optional)</label>
+                                <select id="appointmentTime" name="appointmentTime">
+                                    <option value="">Select time</option>
+                                    <option value="09:00">09:00 AM</option>
+                                    <option value="10:00">10:00 AM</option>
+                                    <option value="11:00">11:00 AM</option>
+                                    <option value="14:00">02:00 PM</option>
+                                    <option value="15:00">03:00 PM</option>
+                                    <option value="16:00">04:00 PM</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Doctor (Auto-assigned) -->
+                        <div class="form-group">
+                            <label for="doctor"><i class="fas fa-user-md"></i> Assigned Doctor</label>
+                            <select id="doctor" name="doctor" disabled>
+                                <option value="">Select service first...</option>
+                                <option value="dr-opuni">Dr. Opuni Randolph - General Medicine</option>
+                                <option value="dr-owusu-francis">Dr. Owusu Francis - Laboratory Services</option>
+                                <option value="dr-mienzah">Dr. Mienzah Paulita - Vaccinations & Injuries</option>
+                                 <option value="dr-owusu-louis">Dr. Owusu Louis - Chronic Disease Management</option>
+                                  <option value="dr-awogbo">Dr. Awogbo Bernard - Dental Care</option>
+                                   <option value="dr-agyei">Dr. Agyei Mintah-Afari -Obstetrics & Gynecology </option>
+                            </select>
+                            <small style="color: var(--soft-green); font-style: italic; margin-top: 0.5rem; display: block;">
+                                This doctor specializes in your selected service
+                            </small>
+                        </div>
+
+                        <!-- Message -->
+                        <div class="form-group">
+                            <label for="message"><i class="fas fa-comment"></i> Additional Message (Optional)</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Any specific concerns or symptoms..."></textarea>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 18px; font-size: 1.2rem;">
+                            <i class="fas fa-calendar-check"></i> Book Appointment
+                        </button>
+                    </form>
+
+                    <!-- Success Message -->
+                    <div id="successMessage" class="success-message" style="display: none; margin-top: 2rem; padding: 2rem; background: linear-gradient(135deg, var(--soft-green), #45a049); color: white; border-radius: 20px; text-align: center;">
+                        <div style="font-size: 4rem; margin-bottom: 1rem;">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h3>✅ Appointment Booked Successfully!</h3>
+                        <p style="font-size: 1.2rem; margin: 1rem 0;">A confirmation SMS will be sent to your phone number.</p>
+                        <p><strong>Your appointment details:</strong></p>
+                        <div id="bookingDetails" style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 10px; margin-top: 1rem;"></div>
+                        <button onclick="resetForm()" class="btn btn-secondary" style="margin-top: 1rem;">Book Another Appointment</button>
+                    </div>
+                </div>
+
+                <!-- Info Column -->
+                <div style="background: var(--pale-yellow); padding: 3rem; border-radius: 25px; box-shadow: 0 15px 35px rgba(0,0,0,0.1);">
+                    <h3 style="color: var(--dark-brown); margin-bottom: 1.5rem; font-size: 1.8rem;">
+                        <i class="fas fa-info-circle" style="color: var(--soft-green); margin-right: 0.5rem;"></i>
+                        Clinic Hours
+                    </h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
+                        <div>
+                            <h4 style="color: var(--dark-brown); margin-bottom: 0.5rem;">Monday - Friday</h4>
+                            <p style="color: var(--text-light);">08:00 AM - 06:00 PM</p>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--dark-brown); margin-bottom: 0.5rem;">Saturday</h4>
+                            <p style="color: var(--text-light);">09:00 AM - 02:00 PM</p>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--dark-brown); margin-bottom: 0.5rem;">Sunday</h4>
+                            <p style="color: var(--text-light);">Emergency Only</p>
+                        </div>
+                    </div>
+                    <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(76,175,80,0.1); border-radius: 15px;">
+                        <p style="margin: 0; font-weight: 500; color: var(--dark-brown);">
+                            📞 <strong>Emergency?</strong> Call +233 24 123 4567 anytime
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>UENR Medical Clinic</h3>
+                    <p>Your trusted healthcare partner providing comprehensive medical services with compassion and excellence.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul style="list-style: none;">
+                        <li><a href="index.html" style="color: #F5DEB3;">Home</a></li>
+                        <li><a href="services.html" style="color: #F5DEB3;">Services</a></li>
+                        <li><a href="doctors.html" style="color: #F5DEB3;">Doctors</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-phone" style="margin-right: 0.5rem;"></i> +233 24 123 4567</p>
+                    <p><i class="fas fa-envelope" style="margin-right: 0.5rem;"></i> info.uenrclinic.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 UENR Medical Clinic. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    
+
+<script>
+    // Service to Doctor mapping (for fallback)
+    const serviceToDoctorMap = {
+        'general-checkup': 'dr-opuni',
+        'laboratory-services': 'dr-owusu-francis',
+        'vaccination': 'dr-mienzah',
+        'chronic-care': 'dr-owusu-louis',
+        'dental-care': 'dr-awogbo',
+        'obstetrics-gynecology': 'dr-agyei'
+    };
+
+    // Doctor to Service mapping (for pre-selection)
+    const doctorToServiceMap = {
+        'dr-opuni': 'general-checkup',
+        'dr-owusu-francis': 'laboratory-services',
+        'dr-mienzah': 'vaccination',
+        'dr-owusu-louis': 'chronic-care',
+        'dr-awogbo': 'dental-care',
+        'dr-agyei': 'obstetrics-gynecology'
+    };
+
+    // Function to get URL parameters
+    function getUrlParams() {
+        const params = new URLSearchParams(window.location.search);
+        return {
+            doctor: params.get('doctor'),
+            service: params.get('service')
+        };
+    }
+
+    // Initialize form with URL parameters on page load
+    window.addEventListener('DOMContentLoaded', function() {
+        const params = getUrlParams();
+        
+        if (params.doctor || params.service) {
+            prefillForm(params);
+        }
+        
+        // Set minimum date to today
+        document.getElementById('appointmentDate').min = new Date().toISOString().split('T')[0];
+    });
+
+    function prefillForm(params) {
+        const serviceSelect = document.getElementById('service');
+        const doctorSelect = document.getElementById('doctor');
+        
+        // Prefill service if provided
+        if (params.service && serviceSelect.querySelector(`[value="${params.service}"]`)) {
+            serviceSelect.value = params.service;
+            // Trigger service change to auto-assign doctor
+            serviceSelect.dispatchEvent(new Event('change'));
+        }
+        
+        // Prefill doctor if provided (override service auto-assignment)
+        if (params.doctor && doctorSelect.querySelector(`[value="${params.doctor}"]`)) {
+            doctorSelect.value = params.doctor;
+            doctorSelect.disabled = false;
+            
+            // Show welcome message
+            showDoctorPrefillMessage(params.doctor);
+        }
+    }
+
+    function showDoctorPrefillMessage(doctorValue) {
+        const doctorLabel = document.querySelector('label[for="doctor"]');
+        const message = document.createElement('div');
+        message.id = 'prefill-message';
+        message.style.cssText = `
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-top: 0.5rem;
+            font-weight: 500;
+            text-align: center;
+            animation: slideDown 0.5s ease-out;
+        `;
+        message.innerHTML = `
+            <i class="fas fa-check-circle" style="margin-right: 0.5rem;"></i>
+            <strong>Great choice!</strong> You've selected ${getDoctorName(doctorValue)} - 
+            specialist in your preferred service.
+        `;
+        
+        doctorLabel.parentNode.insertBefore(message, doctorLabel.nextSibling);
+        
+        // Auto-remove after 5 seconds
+        setTimeout(() => {
+            message.remove();
+        }, 5000);
+    }
+
+    // Auto-assign doctor when service is selected (existing functionality)
+    document.getElementById('service').addEventListener('change', function() {
+        const service = this.value;
+        const doctorSelect = document.getElementById('doctor');
+        const params = getUrlParams();
+        
+        // Don't override URL prefilled doctor
+        if (params.doctor) {
+            return;
+        }
+        
+        if (service && serviceToDoctorMap[service]) {
+            doctorSelect.value = serviceToDoctorMap[service];
+            doctorSelect.disabled = false;
+        } else {
+            doctorSelect.value = '';
+            doctorSelect.disabled = true;
+        }
+    });
+
+    // Form validation and submission
+    document.getElementById('appointmentForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Clear previous errors
+        clearErrors();
+        
+        // Get form data
+        const formData = {
+            fullName: document.getElementById('fullName').value,
+            contact: document.getElementById('contact').value,
+            email: document.getElementById('email').value,
+            service: document.getElementById('service').value,
+            date: document.getElementById('appointmentDate').value,
+            time: document.getElementById('appointmentTime').value,
+            doctor: document.getElementById('doctor').value,
+            message: document.getElementById('message').value
+        };
+        
+        // Validate required fields
+        let isValid = true;
+        
+        if (!formData.fullName.trim()) {
+            showError('nameError', 'Please enter your full name');
+            isValid = false;
+        }
+        
+        if (!formData.contact.match(/^[0-9]{9,10}$/)) {
+            showError('contactError', 'Please enter a valid Ghana phone number (9-10 digits)');
+            isValid = false;
+        }
+        
+        if (!formData.service) {
+            showError('serviceError', 'Please select a service');
+            isValid = false;
+        }
+        
+        const today = new Date().toISOString().split('T')[0];
+        if (!formData.date || formData.date < today) {
+            showError('dateError', 'Please select a valid future date');
+            isValid = false;
+        }
+        
+        if (isValid) {
+            // Show success message
+            showSuccess(formData);
+        }
+    });
+    
+    function showError(errorId, message) {
+        const errorElement = document.getElementById(errorId);
+        if (errorElement) {
+            errorElement.textContent = message;
+            errorElement.style.color = '#ef4444';
+            errorElement.style.fontSize = '0.9rem';
+            errorElement.style.marginTop = '0.5rem';
+            errorElement.style.display = 'block';
+        }
+    }
+    
+    function clearErrors() {
+        document.querySelectorAll('.error-message').forEach(el => {
+            el.textContent = '';
+            el.style.display = 'none';
+        });
+        // Clear prefill message
+        const prefillMsg = document.getElementById('prefill-message');
+        if (prefillMsg) prefillMsg.remove();
+    }
+    
+    function showSuccess(formData) {
+        const successDiv = document.getElementById('successMessage');
+        const detailsDiv = document.getElementById('bookingDetails');
+        
+        detailsDiv.innerHTML = `
+            <p><strong>Name:</strong> ${formData.fullName}</p>
+            <p><strong>Phone:</strong> 🇬🇭 +233 ${formData.contact}</p>
+            <p><strong>Service:</strong> ${getServiceName(formData.service)}</p>
+            <p><strong>Date:</strong> ${new Date(formData.date).toLocaleDateString('en-GH')}</p>
+            ${formData.time ? `<p><strong>Time:</strong> ${formData.time}</p>` : ''}
+            ${formData.doctor ? `<p><strong>Doctor:</strong> ${getDoctorName(formData.doctor)}</p>` : ''}
+        `;
+        
+        successDiv.style.display = 'block';
+        document.getElementById('appointmentForm').style.display = 'none';
+        
+        // Scroll to success message
+        successDiv.scrollIntoView({ behavior: 'smooth' });
+    }
+    
+    function resetForm() {
+        document.getElementById('appointmentForm').reset();
+        document.getElementById('appointmentForm').style.display = 'block';
+        document.getElementById('successMessage').style.display = 'none';
+        document.getElementById('doctor').disabled = true;
+        document.getElementById('doctor').value = '';
+        clearErrors();
+    }
+    
+    function getServiceName(value) {
+        const services = {
+            'general-checkup': 'General Health Checkup',
+            'laboratory-services': 'Laboratory Services',
+            'vaccination': 'Vaccination',
+            'chronic-care': 'Chronic Disease Management',
+            'minor-illness': 'Minor Illness Treatment',
+            'common-illness': 'Common Illness Care',
+            'injury-treatment': 'Minor Injury Treatment'
+        };
+        return services[value] || value;
+    }
+    
+    function getDoctorName(value) {
+        const doctors = {
+           'dr-opuni': 'Dr. Opuni Randolph - General Medicine',
+                'dr-owusu-francis': 'Dr. Owusu Francis - Laboratory Services',
+                'dr-mienzah': 'Dr. Mienzah Paulita - Vaccinations & Injuries',
+                 'dr-owusu-louis': 'Dr. Owusu Louis - Chronic Disease Management',
+                  'dr-awogbo': 'Dr. Awogbo Bernard - Dental Care',
+                   'dr-agyei': 'Dr. Agyei Mintah-Afari -Obstetrics & Gynecology '
+
+        };
+        return doctors[value] || value;
+    }
+    
+    // Auto-format phone number
+    document.getElementById('contact').addEventListener('input', function(e) {
+        let value = e.target.value.replace(/\D/g, '');
+        if (value.length > 10) value = value.slice(0, 10);
+        e.target.value = value;
+    });
+</script>
+
+</body>
+</html>
